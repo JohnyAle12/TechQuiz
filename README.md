@@ -34,3 +34,10 @@ After that, you can start the application in local environment with:
 # start the virtual server and run application
 $ php artisan serve
 ```
+
+When you are creating users you need execute de queue worker to send emails, do it with:
+
+```bash
+# start the queue worker
+$ php artisan queue:work
+```
