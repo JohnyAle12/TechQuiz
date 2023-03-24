@@ -115,4 +115,8 @@ return [
         ],
     ],
 
+    'sysadmin' => [
+        'email' => env('ADMIN_EMAIL', 'hello@example.com'),
+    ]
+
 ];
