@@ -22,4 +22,13 @@ class UserService
             'mobile' => $request->mobile,
         ]);
     }
+
+    public function getUsersByCountry(): array
+    {
+        return User::selectRaw("country, count(*) AS count")
+            ->groupBy('country')
+            ->orderBy('count', 'desc')
+            ->get()
+            ->toArray();
+    }
 }
