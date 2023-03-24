@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Observers;
 
 use App\Mail\AdminNotification;
@@ -21,7 +23,8 @@ class UserObserver
     {
         Mail::to($user)->send(new UserNotification($user));
 
+        $adminEmail = config('mail.sysadmin.email');
         $adminModel = new AdminModel(new UserService);
-        Mail::to(config('mail.sysadmin.email'))->send(new AdminNotification($adminModel));
+        Mail::to($adminEmail)->send(new AdminNotification($adminModel));
     }
 }
