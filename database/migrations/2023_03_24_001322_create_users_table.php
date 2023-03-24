@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('email', 150)->unique();
             $table->string('country');
             $table->string('address', 180);
-            $table->integer('mobile');
+            $table->string('mobile');
             $table->timestamps();
             $table->softDeletes();
         });
