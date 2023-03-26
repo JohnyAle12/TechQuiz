@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('user', UserController::class);
 Route::get('countries', [CountryController::class, 'getCountries']);
+Route::get('categories', [CategoryController::class, 'getCategories']);
