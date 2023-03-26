@@ -26,7 +26,7 @@ class UserService
 
     public function getUsers(): array
     {
-        return User::orderBy('name')->get()->toArray();
+        return User::orderBy('created_at', 'desc')->get()->toArray();
     }
 
     public function getUsersByCountry(): array
