@@ -24,9 +24,15 @@ class UserService
         ]);
     }
 
-    public function getUsers(): array
+    public function getUsers(string $query = null): array
     {
-        return User::orderBy('created_at', 'desc')->get()->toArray();
+        return User::when($query, function($q, $query){
+            return $q->where('name', $query)
+                ->orWhere('lastname', $query);
+        })
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->toArray();
     }
 
     public function getUsersByCountry(): array
