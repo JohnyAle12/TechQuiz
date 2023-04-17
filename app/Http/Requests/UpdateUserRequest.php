@@ -14,11 +14,11 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:100', 'min:5', 'regex:/^[a-zA-Z]{5,100}/'],
-            'lastname' => ['required', 'string', 'max:100', 'min:5', 'regex:/^[a-zA-Z]{5,100}/'],
-            'country' => ['required', 'string'],
-            'address' => ['required', 'string', 'max:180'],
-            'mobile' => ['required', 'integer', 'max_digits:10', 'min_digits:10', 'regex:/^([0-9]{10}+\.?[0-9]{0,2})$/']
+            'name' => ['string', 'max:100', 'min:5', 'regex:/^[a-zA-Z]{5,100}/'],
+            'lastname' => ['string', 'max:100', 'min:5', 'regex:/^[a-zA-Z]{5,100}/'],
+            'country' => ['string'],
+            'address' => ['string', 'max:180'],
+            'mobile' => ['integer', 'max_digits:10', 'min_digits:10', 'regex:/^([0-9]{10}+\.?[0-9]{0,2})$/']
         ];
     }
 }
