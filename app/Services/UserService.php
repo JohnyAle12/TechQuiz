@@ -12,16 +12,7 @@ class UserService
 {
     public function saveUser(UserRequest $request): User
     {
-        return User::create([
-            'category_id' => $request->category_id,
-            'name' => $request->name,
-            'lastname' => $request->lastname,
-            'identification' => $request->identification,
-            'email' => $request->email,
-            'country' => $request->country,
-            'address' => $request->address,
-            'mobile' => $request->mobile,
-        ]);
+        return User::create($request->all());
     }
 
     public function getUsers(string $query = null): array
@@ -46,15 +37,7 @@ class UserService
 
     public function updateUser(UpdateUserRequest $request, User $user): User
     {
-        $user->update([
-            'category_id' => $request->category_id,
-            'name' => $request->name,
-            'lastname' => $request->lastname,
-            'country' => $request->country,
-            'address' => $request->address,
-            'mobile' => $request->mobile,
-        ]);
-
+        $user->update($request->all());
         return $user;
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('lastname', 100);
             $table->integer('identification')->unique();
             $table->string('email', 150)->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('country');
             $table->string('address', 180);
             $table->string('mobile');
